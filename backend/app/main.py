@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base, SessionLocal
-from app.models.menu import MenuItem
+from app.models import User, MenuItem, Order, OrderItem
 from app.routers.auth import router as auth_router
 from app.routers.menu import router as menu_router
+from app.routers.order import router as order_router
 
 # Initialize SQLite database schema
 Base.metadata.create_all(bind=engine)
@@ -194,6 +195,7 @@ app.add_middleware(
 # Register routes
 app.include_router(auth_router)
 app.include_router(menu_router)
+app.include_router(order_router)
 
 @app.get("/")
 def read_root():
