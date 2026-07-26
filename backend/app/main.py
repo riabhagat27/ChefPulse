@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base, SessionLocal
-from app.models import User, MenuItem, Order, OrderItem
+from app.models import User, MenuItem, Order, OrderItem, Reservation
 from app.routers.auth import router as auth_router
 from app.routers.menu import router as menu_router
 from app.routers.order import router as order_router
+from app.routers.assistant import router as assistant_router
+from app.routers.reservation import router as reservation_router
+from app.routers.analytics import router as analytics_router
 
 # Initialize SQLite database schema
 Base.metadata.create_all(bind=engine)
@@ -196,6 +199,9 @@ app.add_middleware(
 app.include_router(auth_router)
 app.include_router(menu_router)
 app.include_router(order_router)
+app.include_router(assistant_router)
+app.include_router(reservation_router)
+app.include_router(analytics_router)
 
 @app.get("/")
 def read_root():
