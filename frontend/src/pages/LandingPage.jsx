@@ -93,6 +93,12 @@ export default function LandingPage() {
       desc: 'Synchronize dining room bookings, VIP requests, and delivery lines into a singular, high-precision queue.',
       color: 'from-primary/10 to-transparent',
       iconColor: 'text-primary',
+      badge: 'Core Feature',
+      bullets: [
+        'Real-time order tracking',
+        'Multi-channel order management',
+        'Seamless kitchen coordination'
+      ]
     },
     {
       icon: Package,
@@ -100,6 +106,12 @@ export default function LandingPage() {
       desc: 'Automated stock and pantry tracking. Triggers ordering cycles for premium ingredients before supply depletes.',
       color: 'from-secondary/10 to-transparent',
       iconColor: 'text-secondary',
+      badge: 'Included',
+      bullets: [
+        'Live inventory monitoring',
+        'Low-stock alerts',
+        'Automated inventory updates'
+      ]
     },
     {
       icon: ChefHat,
@@ -107,6 +119,12 @@ export default function LandingPage() {
       desc: 'Seamless kitchen display workflows that pace dishes based on live cooking speeds, ensuring synchronized plating.',
       color: 'from-primary/10 to-transparent',
       iconColor: 'text-primary',
+      badge: 'Core Feature',
+      bullets: [
+        'Kitchen Display System',
+        'Live order preparation tracking',
+        'Faster kitchen workflows'
+      ]
     },
     {
       icon: Sparkles,
@@ -114,6 +132,12 @@ export default function LandingPage() {
       desc: 'AI modeling that forecasts seasonal guest volume, ingredient utilization, and optimal workforce scheduling.',
       color: 'from-secondary/10 to-transparent',
       iconColor: 'text-secondary',
+      badge: 'AI Powered',
+      bullets: [
+        'AI demand forecasting',
+        'Smart menu recommendations',
+        'Sales and inventory insights'
+      ]
     },
   ];
 
@@ -348,26 +372,43 @@ export default function LandingPage() {
           {featureItems.map((feature, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ y: -6, borderColor: 'rgba(212, 175, 55, 0.35)' }}
+              whileHover={{ 
+                y: -6, 
+                borderColor: 'rgba(212, 175, 55, 0.45)',
+                boxShadow: '0 10px 30px -15px rgba(212, 175, 55, 0.15)'
+              }}
               transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               className="glass-card rounded-card p-8 border border-border-color transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
             >
               {/* Gold gradient accent on hover */}
               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${feature.color} opacity-20 blur-2xl group-hover:scale-125 transition-transform duration-500`} />
 
+              {/* Premium Badge */}
+              <div className="absolute top-8 right-8">
+                <span className="px-2.5 py-1 rounded-full text-[8px] font-bold uppercase tracking-wider bg-primary/10 text-primary border border-primary/20">
+                  {feature.badge}
+                </span>
+              </div>
+
               <div className="space-y-6">
                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-border-color">
                   <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-2 text-left">
                   <h3 className="text-xl font-serif font-semibold text-primary-text">{feature.title}</h3>
                   <p className="text-secondary-text text-sm leading-relaxed font-light">{feature.desc}</p>
                 </div>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-border-color flex items-center gap-1.5 text-[10px] uppercase tracking-widest text-primary font-bold cursor-pointer hover:underline">
-                Request Specifications <ArrowRight className="w-3.5 h-3.5" />
-              </div>
+              {/* Bullet Points */}
+              <ul className="mt-6 pt-4 border-t border-border-color/30 space-y-2 text-left">
+                {feature.bullets.map((bullet, bIdx) => (
+                  <li key={bIdx} className="flex items-center gap-2 text-xs text-secondary-text font-light">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary/80 shrink-0" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
