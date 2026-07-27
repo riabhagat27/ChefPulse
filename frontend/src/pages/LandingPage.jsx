@@ -450,10 +450,10 @@ export default function LandingPage() {
               <FaXTwitter className="w-4 h-4" />
             </a>
             <a href="#" className="p-2.5 rounded-full bg-[#1A1A1A] border border-border-color text-secondary-text hover:text-primary hover:bg-white/5 transition-all duration-300">
-              <FaXLinkedin className="w-4 h-4" />
+              <FaLinkedin className="w-4 h-4" />
             </a>
             <a href="#" className="p-2.5 rounded-full bg-[#1A1A1A] border border-border-color text-secondary-text hover:text-primary hover:bg-white/5 transition-all duration-300">
-              <FaXGithub className="w-4 h-4" />
+              <FaGithub className="w-4 h-4" />
             </a>
           </div>
         </div>
