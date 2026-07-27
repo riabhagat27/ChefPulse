@@ -12,11 +12,13 @@ The platform provides dedicated dashboards for restaurant administrators, kitche
 ChefPulse combines restaurant management, order processing, reservations, inventory tracking, analytics, notifications, and AI-driven interactions into a single platform.
 
 Developed as a solo project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
+
 ---
 # 👤 Team Information 
 ## Team Name **SoloStack** 
 ## Team Size **1** 
 ## Team Lead **Ria Bhagat** 
+
 --- 
 ## Roles & Responsibilities 
 Since this is a solo submission, all responsibilities were handled by the Team Lead. 
@@ -30,6 +32,7 @@ Since this is a solo submission, all responsibilities were handled by the Team L
 | API Developer | Ria Bhagat | 
 | AI Integration | Ria Bhagat | 
 | Testing & Deployment | Ria Bhagat | 
+
 --- 
 # 🚀 Live Demo 
 ## Frontend 
@@ -148,6 +151,7 @@ Examples include:
 - Registration
 - OTP Email Verification
 - Role-Based Access Control
+
 ---
 
 # 📧 Notifications
@@ -231,10 +235,13 @@ ChefPulse/
         └── main.py           # FastAPI application entry point
 ```
 
-# ⚙️ Installation ## Clone Repository
+# ⚙️ Installation 
+## Clone Repository
 bash
-git clone 
-https://github.com/YOUR_USERNAME/ChefPulse.git
+git clone
+
+https://github.com/riabhagat27/ChefPulse.git
+
 --- 
 
 ## Backend
@@ -253,6 +260,7 @@ pip install -r requirements.txt
 Run server
 bash
 uvicorn app.main:app --reload
+
 --- 
 
 ## Frontend
@@ -262,6 +270,7 @@ cd frontend
 npm install
 
 npm run dev
+
 --- 
 
 # 🌐 API FastAPI automatically generates API documentation. 
@@ -269,6 +278,7 @@ Swagger
 /docs
 Redoc
 /redoc
+
 ---
 
 # 🔥 Highlights
