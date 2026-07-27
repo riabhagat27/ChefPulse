@@ -8,11 +8,11 @@ import {
   Sparkles,
   ArrowRight,
   Play,
-  Twitter,
-  Linkedin,
-  Github,
+  TwitterIcon,
+  LinkedinIcon,
+  GithubIcon,
   Sparkle
-} from 'lucide-react';
+} from "lucide-react";
 import Navbar from '../components/Navbar';
 import DashboardIllustration from '../components/DashboardIllustration';
 
@@ -449,13 +449,13 @@ export default function LandingPage() {
 
           <div className="flex items-center gap-4">
             <a href="#" className="p-2.5 rounded-full bg-[#1A1A1A] border border-border-color text-secondary-text hover:text-primary hover:bg-white/5 transition-all duration-300">
-              <Twitter className="w-4 h-4" />
+              <TwitterIcon className="w-4 h-4" />
             </a>
             <a href="#" className="p-2.5 rounded-full bg-[#1A1A1A] border border-border-color text-secondary-text hover:text-primary hover:bg-white/5 transition-all duration-300">
-              <Linkedin className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <a href="#" className="p-2.5 rounded-full bg-[#1A1A1A] border border-border-color text-secondary-text hover:text-primary hover:bg-white/5 transition-all duration-300">
-              <Github className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4" />
             </a>
           </div>
         </div>
