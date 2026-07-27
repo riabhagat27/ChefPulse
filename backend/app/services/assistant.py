@@ -4,6 +4,7 @@ from datetime import datetime, timezone, timedelta
 from collections import Counter
 from app.models.menu import MenuItem
 from app.models.order import Order
+from app.models.order import Order, OrderItem
 from app.models.reservation import Reservation
 from app.models.inventory import InventoryItem
 from app.models.user import User
