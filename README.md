@@ -315,6 +315,16 @@ Redoc
 - POS Integration
 - Customer Loyalty & Rewards
 ---
+# 🚧 Beta Features / Incomplete Functionality
+
+The following features are currently in **Beta** and may require further refinement:
+
+- **Admin Demo Account**
+– Existing admin login may require re-registration or password reset after deployment due to SQLite deployment limitations.
+- **AI Demand Forecasting**
+– Current forecasts are based on historical averages and are intended as a prototype.
+---
+
 
 # 📸 Screenshots
 <img width="944" height="496" alt="image" src="https://github.com/user-attachments/assets/75c2d81a-d351-4fc1-9087-849051adb7cf" />
