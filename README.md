@@ -1,3 +1,6 @@
+# 🍽️ ChefPulse ### AI-Powered Smart Restaurant Management Platform 
+![Hackathon](https://img.shields.io/badge/Hackathon-Vibeathon%206.0-blue?style=for-the-badge) ![Team](https://img.shields.io/badge/Team-SoloStack-success?style=for-the-badge) ![Team Size](https://img.shields.io/badge/Team%20Size-1-orange?style=for-the-badge) ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge) ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge) ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge) ---
+
 # ChefPulse - AI-Powered Restaurant Operations Platform
 
 ChefPulse is a premium AI SaaS dashboard and restaurant operations platform. This codebase represents the initial hackathon prototype foundation, featuring a high-fidelity landing page with glassmorphism, charts, animated statistics counters, and a placeholder FastAPI backend with CORS and SQLite configuration.
