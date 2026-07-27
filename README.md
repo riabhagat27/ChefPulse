@@ -4,41 +4,42 @@ ChefPulse is a premium AI SaaS dashboard and restaurant operations platform. Thi
 
 ---
 
-## Folder Structure
+# 📂 Project Structure
 
 ```text
 ChefPulse/
-├── .env.example            # Environment variables template
-├── README.md               # Documentation and execution guide
-├── frontend/               # React (Vite) client
-│   ├── public/             # Static files
+├── .env.example              # Environment variables template
+├── README.md                 # Project documentation
+│
+├── frontend/                 # React + Vite frontend
+│   ├── public/               # Static assets
 │   ├── src/
-│   │   ├── assets/         # Images, graphics, and SVG assets
-│   │   ├── components/     # Reusable components (Navbar, DashboardIllustration, etc.)
-│   │   ├── context/        # React context providers
-│   │   ├── hooks/          # Custom hooks
-│   │   ├── layouts/        # Layout wrappers
-│   │   ├── pages/          # App pages (LandingPage)
-│   │   ├── services/       # API call definitions (Axios setup)
-│   │   ├── App.jsx         # App router and layouts configuration
-│   │   ├── index.css       # Tailwind entry and utility classes
-│   │   └── main.jsx        # App mounting entry point
-│   ├── index.html          # HTML Shell
-│   ├── tailwind.config.js  # Tailwind config
-│   ├── postcss.config.js   # PostCSS config
-│   └── package.json        # Frontend dependencies
-└── backend/                # FastAPI server
-    ├── requirements.txt    # Python package lists
+│   │   ├── assets/           # Images, icons and illustrations
+│   │   ├── components/       # Reusable UI components
+│   │   ├── context/          # Authentication & global state
+│   │   ├── hooks/            # Custom React hooks
+│   │   ├── layouts/          # Dashboard layouts
+│   │   ├── pages/            # Application pages
+│   │   ├── services/         # API services (Axios)
+│   │   ├── App.jsx           # Routing configuration
+│   │   ├── main.jsx          # React entry point
+│   │   └── index.css         # Global styles
+│   ├── package.json
+│   ├── vite.config.js
+│   └── index.html
+│
+└── backend/                  # FastAPI backend
+    ├── requirements.txt
     └── app/
-        ├── models/         # SQLAlchemy schemas definitions
-        ├── routers/        # FastAPI sub-routes
-        ├── schemas/        # Pydantic schemas
-        ├── services/       # Core business logic helpers
-        ├── database.py     # SQLAlchemy and SQLite configuration
-        └── main.py         # Main server entry with CORS setup
+        ├── models/           # SQLAlchemy database models
+        ├── routers/          # API endpoints
+        ├── schemas/          # Pydantic schemas
+        ├── services/         # AI assistant, authentication & business logic
+        ├── static/
+        │   └── dish_images/  # Generated/uploaded menu images
+        ├── database.py       # Database configuration
+        └── main.py           # FastAPI application entry point
 ```
-
----
 
 ## Installation Commands
 
