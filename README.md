@@ -13,7 +13,174 @@ ChefPulse combines restaurant management, order processing, reservations, invent
 
 Developed as a solo project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
 ---
-# 👤 Team Information ## Team Name **SoloStack** ## Team Size **1** ## Team Lead **Ria Bhagat** --- ## Roles & Responsibilities Since this is a solo submission, all responsibilities were handled by the Team Lead. | Role | Member | |-------|--------| | Team Lead | Ria Bhagat | | UI/UX Designer | Ria Bhagat | | Frontend Developer | Ria Bhagat | | Backend Developer | Ria Bhagat | | Database Designer | Ria Bhagat | | API Developer | Ria Bhagat | | AI Integration | Ria Bhagat | | Testing & Deployment | Ria Bhagat | --- # 🚀 Live Demo ## Frontend https://chef-pulse.vercel.app/ ## Backend API https://chefpulse-backend.onrender.com/ --- # 🏆 Hackathon **Vibeathon 6.0** --- # 💡 Problem Statement Modern restaurants often rely on multiple disconnected systems to manage orders, inventory, reservations, customer interactions, and kitchen operations. This leads to inefficient workflows, slower service, increased manual effort, and limited operational insights. ChefPulse addresses these challenges by providing a centralized AI-powered platform that combines restaurant management, analytics, customer engagement, and intelligent automation into one seamless solution. ---
+# 👤 Team Information 
+## Team Name **SoloStack** 
+## Team Size **1** 
+## Team Lead **Ria Bhagat** 
+--- 
+## Roles & Responsibilities 
+Since this is a solo submission, all responsibilities were handled by the Team Lead. 
+| Role | Member | 
+|-------|--------| 
+| Team Lead | Ria Bhagat | 
+| UI/UX Designer | Ria Bhagat | 
+| Frontend Developer | Ria Bhagat | 
+| Backend Developer | Ria Bhagat | 
+| Database Designer | Ria Bhagat | 
+| API Developer | Ria Bhagat | 
+| AI Integration | Ria Bhagat | 
+| Testing & Deployment | Ria Bhagat | 
+--- 
+# 🚀 Live Demo 
+## Frontend https://chef-pulse.vercel.app
+## Backend API https://chefpulse-backend.onrender.com
+--- 
+# 🏆 Hackathon **Vibeathon 6.0** 
+--- 
+# 💡 Problem Statement 
+Modern restaurants often rely on multiple disconnected systems to manage orders, inventory, reservations, customer interactions, and kitchen operations. This leads to inefficient workflows, slower service, increased manual effort, and limited operational insights. ChefPulse addresses these challenges by providing a centralized AI-powered platform that combines restaurant management, analytics, customer engagement, and intelligent automation into one seamless solution. ---
+
+# ✨ Key Features 
+## 👨‍💼 Admin Dashboard 
+- Restaurant analytics
+- Revenue insights
+- Order management
+- Customer management
+- Reservation management
+- Inventory management
+- Menu management
+- AI Assistant
+- Notifications
+- Profile management
+---
+## 🍽 Customer Dashboard 
+- Browse luxury menu
+- AI restaurant assistant
+- Voice ordering
+- Image-based dish recognition
+- Smart recommendations
+- Place orders
+- View order history
+- Reserve tables
+- Manage profile
+---
+## 👨‍🍳 Kitchen Dashboard 
+- View incoming orders
+- Update order status
+- Track kitchen workload
+---
+# 🤖 AI Features
+
+## Customer AI Assistant
+
+- Natural language restaurant assistant
+- Smart menu recommendations
+- Dietary preference filtering (Veg / Non-Veg)
+- Budget-based food suggestions
+- Category-wise recommendations
+- Chef's special recommendations
+- Side dish & beverage pairing suggestions
+- Restaurant FAQs (hours, location, concept)
+
+---
+
+## Admin AI Assistant
+
+The AI assistant can answer operational questions using live restaurant data.
+
+Examples include:
+
+- What sold the most today?
+- What are today's sales?
+- Which customers spent the most?
+- Which dishes are underperforming?
+- Which menu item should be restocked?
+- Predict tomorrow's demand
+- Inventory status
+- Reservation summary
+- Customer statistics
+- Order status overview
+- Marketing recommendations
+
+---
+
+## AI-Powered Features
+
+- Intelligent menu recommendations
+- AI-generated dish images
+- Voice ordering support
+- Image-based dish recognition
+- Role-based AI responses
+---
+# 📊 Analytics
+
+- Revenue dashboard
+- Daily sales tracking
+- Order statistics
+- Best-selling dishes
+- Customer insights
+- Restaurant performance metrics
+- AI-generated business insights
+- Demand forecasting
+---
+# 📦 Inventory Management
+
+- Inventory tracking
+- Low stock detection
+- Restock recommendations
+- Category-wise inventory
+- Stock level monitoring
+---
+## 🔐 Authentication 
+- JWT Authentication
+- Secure Login
+- Registration
+- OTP Email Verification
+- Role-Based Access Control
+---
+# 📧 Notifications
+
+- Real-time notifications
+- Live updates using WebSockets
+- Order notifications
+- Reservation updates
+---
+
+## Frontend
+
+- React
+- Vite
+- React Router
+- Axios
+- Framer Motion
+- Recharts
+- Lucide React
+
+## Backend
+
+- FastAPI
+- SQLAlchemy
+- Pydantic
+- JWT Authentication
+- Passlib
+- Argon2
+- WebSockets
+
+## Database
+
+- SQLite
+
+## AI Features
+
+- Rule-based Natural Language Assistant
+- Intelligent Recommendation Engine
+- Image Recognition
+- AI-generated Dish Images
+
+## Deployment
+
+- Vercel (Frontend)
+- Render (Backend)
 
 # 📂 Project Structure
 
