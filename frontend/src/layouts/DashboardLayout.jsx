@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -7,21 +7,81 @@ import {
   LayoutDashboard, UtensilsCrossed, CalendarDays, ClipboardList, 
   Settings, ChefHat, BarChart3, Users, MessageSquareCode, Layers
 } from 'lucide-react';
+import api from '../services/api';
+import useWebSocket from '../hooks/useWebSocket';
+import { useNotification } from '../context/NotificationContext';
 
 export default function DashboardLayout() {
   const { user, logout } = useAuth();
+  const { showToast } = useNotification();
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
-  // Notifications placeholder data
-  const [notifications, setNotifications] = useState([
-    { id: 1, text: 'Order #4092 completed by Kitchen', time: '5m ago', unread: true },
-    { id: 2, text: 'New booking: Table 4 (8:30 PM)', time: '12m ago', unread: true },
-    { id: 3, text: 'Inventory Alert: White Truffle levels low', time: '1h ago', unread: false },
-  ]);
+  // Persistent SQLite Notifications
+  const [notifications, setNotifications] = useState([]);
+  const [notifFilter, setNotifFilter] = useState('all'); // 'all' | 'unread'
+
+  const fetchNotifications = async () => {
+    try {
+      const res = await api.get('/api/notifications');
+      setNotifications(res.data);
+    } catch (err) {
+      console.error('Error fetching notifications telemetry:', err);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      fetchNotifications();
+    }
+  }, [user]);
+
+  // Connect live events to websocket broadcast
+  useWebSocket((data) => {
+    if (data.event === 'notification_created') {
+      fetchNotifications();
+    }
+    if (data.event === 'new_notification') {
+      if (data.role === 'admin' && user?.role === 'admin') {
+        showToast(data.text, data.type);
+      } else if (data.role === 'customer' && data.customer_id === user?.id) {
+        showToast(data.text, data.type);
+      }
+    }
+  });
+
+  const handleClearNotifications = async () => {
+    try {
+      await api.put('/api/notifications/read');
+      fetchNotifications();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleMarkSingleRead = async (id) => {
+    try {
+      await api.put(`/api/notifications/${id}/read`);
+      fetchNotifications();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const formatRelativeTime = (dateString) => {
+    const diff = new Date() - new Date(dateString);
+    const secs = Math.floor(diff / 1000);
+    if (secs < 60) return 'Just now';
+    const mins = Math.floor(secs / 60);
+    if (mins < 60) return `${mins}m ago`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}h ago`;
+    const days = Math.floor(hours / 24);
+    return `${days}d ago`;
+  };
 
   const handleLogout = async () => {
     await logout();
@@ -32,22 +92,23 @@ export default function DashboardLayout() {
   const menuItems = user?.role === 'admin' 
     ? [
         { label: 'Dashboard', path: '/dashboard/admin', icon: LayoutDashboard },
-        { label: 'Orders', path: '#orders', icon: ClipboardList },
-        { label: 'Reservations', path: '#reservations', icon: CalendarDays },
+        { label: 'Orders', path: '/dashboard/admin/orders', icon: ClipboardList },
+        { label: 'Reservations', path: '/dashboard/admin/reservations', icon: CalendarDays },
         { label: 'Menu Management', path: '/dashboard/admin/menu', icon: UtensilsCrossed },
-        { label: 'Inventory', path: '#inventory', icon: Layers },
-        { label: 'Analytics', path: '#analytics', icon: BarChart3 },
+        { label: 'Inventory', path: '/dashboard/admin/inventory', icon: Layers },
+        { label: 'Analytics', path: '/dashboard/admin/analytics', icon: BarChart3 },
         { label: 'Kitchen (KDS)', path: '/dashboard/kitchen', icon: ChefHat },
-        { label: 'Customers', path: '#customers', icon: Users },
-        { label: 'AI Assistant', path: '#ai', icon: MessageSquareCode },
-        { label: 'Settings', path: '#settings', icon: Settings },
+        { label: 'Customers', path: '/dashboard/admin/customers', icon: Users },
+        { label: 'AI Assistant', path: '/dashboard/admin/assistant', icon: MessageSquareCode },
+        { label: 'Settings', path: '/dashboard/admin/settings', icon: Settings },
       ]
     : [
         { label: 'Dashboard', path: '/dashboard/customer', icon: LayoutDashboard },
         { label: 'Digital Menu', path: '/dashboard/customer/menu', icon: UtensilsCrossed },
-        { label: 'Reservations', path: '#reservations', icon: CalendarDays },
-        { label: 'Orders', path: '#orders', icon: ClipboardList },
-        { label: 'Profile', path: '#profile', icon: User },
+        { label: 'Reservations', path: '/dashboard/customer', icon: CalendarDays },
+        { label: 'Orders', path: '/dashboard/customer/orders', icon: ClipboardList },
+        { label: 'AI Assistant', path: '/dashboard/customer/assistant', icon: MessageSquareCode },
+        { label: 'Profile', path: '/dashboard/profile', icon: User },
       ];
 
   const activeItem = menuItems.find(item => location.pathname === item.path) || menuItems[0];
@@ -149,11 +210,13 @@ export default function DashboardLayout() {
                   setIsNotificationsOpen(!isNotificationsOpen);
                   setIsProfileOpen(false);
                 }}
-                className="p-2.5 rounded-xl border border-border-color bg-background/30 text-secondary-text hover:text-primary hover:border-primary/30 transition-all relative"
+                className="p-2.5 rounded-xl border border-border-color bg-background/30 text-secondary-text hover:text-primary hover:border-primary/30 transition-all relative cursor-pointer"
               >
                 <Bell className="w-4 h-4" />
-                {notifications.some(n => n.unread) && (
-                  <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary" />
+                {notifications.filter(n => n.unread).length > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-background font-bold text-[8px] h-4 w-4 rounded-full flex items-center justify-center border border-background shadow-md">
+                    {notifications.filter(n => n.unread).length}
+                  </span>
                 )}
               </button>
 
@@ -163,24 +226,74 @@ export default function DashboardLayout() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 mt-3 w-80 glass border border-border-color rounded-xl shadow-2xl p-4 space-y-3 z-50"
+                    className="absolute right-0 mt-3 w-80 glass border border-border-color rounded-xl shadow-2xl p-4 space-y-3 z-50 bg-background/95"
                   >
-                    <div className="flex items-center justify-between border-b border-border-color pb-2">
+                    <div className="flex items-center justify-between border-b border-border-color pb-2 text-xs">
                       <span className="text-[10px] uppercase tracking-widest font-bold text-primary">Alerts Queue</span>
                       <button 
-                        onClick={() => setNotifications(notifications.map(n => ({...n, unread: false})))}
-                        className="text-[9px] uppercase tracking-widest text-secondary-text hover:text-primary"
+                        onClick={handleClearNotifications}
+                        className="text-[9px] uppercase tracking-widest text-secondary-text hover:text-primary font-bold transition-colors cursor-pointer"
                       >
-                        Clear Unread
+                        Mark All as Read
                       </button>
                     </div>
-                    <div className="space-y-2 max-h-60 overflow-y-auto">
-                      {notifications.map(notif => (
-                        <div key={notif.id} className="p-2.5 rounded-lg bg-background/40 hover:bg-background/80 transition-colors text-left space-y-1">
-                          <p className={`text-xs ${notif.unread ? 'text-primary-text font-medium' : 'text-secondary-text'}`}>{notif.text}</p>
-                          <span className="text-[9px] text-secondary-text/50">{notif.time}</span>
-                        </div>
-                      ))}
+
+                    {/* Filter Tabs (all vs unread) */}
+                    <div className="flex gap-2 p-0.5 rounded-lg bg-surface/50 border border-white/5">
+                      <button
+                        type="button"
+                        onClick={() => setNotifFilter('all')}
+                        className={`flex-1 py-1 rounded text-[9px] uppercase font-bold tracking-wider transition-all cursor-pointer ${
+                          notifFilter === 'all'
+                            ? 'bg-primary text-background'
+                            : 'text-secondary-text hover:text-primary-text'
+                        }`}
+                      >
+                        All
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setNotifFilter('unread')}
+                        className={`flex-1 py-1 rounded text-[9px] uppercase font-bold tracking-wider transition-all cursor-pointer ${
+                          notifFilter === 'unread'
+                            ? 'bg-primary text-background'
+                            : 'text-secondary-text hover:text-primary-text'
+                        }`}
+                      >
+                        Unread ({notifications.filter(n => n.unread).length})
+                      </button>
+                    </div>
+
+                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
+                      {notifications.filter(n => notifFilter === 'all' || n.unread).length === 0 ? (
+                        <div className="py-8 text-center text-[10px] text-secondary-text/40 uppercase tracking-wider">No alerts in queue</div>
+                      ) : (
+                        notifications
+                          .filter(n => notifFilter === 'all' || n.unread)
+                          .map(notif => (
+                            <div 
+                              key={notif.id} 
+                              onClick={() => handleMarkSingleRead(notif.id)}
+                              className={`p-2.5 rounded-lg border transition-all text-left space-y-1 cursor-pointer ${
+                                notif.unread 
+                                  ? 'bg-surface border-primary/20 hover:border-primary/45' 
+                                  : 'bg-surface/50 border-white/5 opacity-60 hover:opacity-100'
+                              }`}
+                            >
+                              <div className="flex justify-between items-start gap-2">
+                                <p className={`text-xs leading-normal ${notif.unread ? 'text-primary-text font-semibold' : 'text-secondary-text'}`}>
+                                  {notif.text}
+                                </p>
+                                {notif.unread && (
+                                  <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-1" />
+                                )}
+                              </div>
+                              <span className="text-[9px] text-secondary-text/50 block">
+                                {formatRelativeTime(notif.created_at)}
+                              </span>
+                            </div>
+                          ))
+                      )}
                     </div>
                   </motion.div>
                 )}
@@ -209,16 +322,28 @@ export default function DashboardLayout() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute right-0 mt-3 w-56 glass border border-border-color rounded-xl shadow-2xl p-2.5 space-y-1 z-50 text-left"
+                    className="absolute right-0 mt-3 w-56 glass border border-border-color rounded-xl shadow-2xl p-2.5 space-y-1 z-50 text-left bg-background/95"
                   >
                     <div className="px-3.5 py-2 border-b border-border-color">
                       <div className="text-xs font-semibold text-primary-text">{user?.full_name}</div>
                       <div className="text-[10px] text-secondary-text truncate">{user?.email}</div>
                     </div>
-                    <button className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-secondary-text hover:text-primary-text hover:bg-white/5 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setIsProfileOpen(false);
+                        navigate('/dashboard/profile');
+                      }}
+                      className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-secondary-text hover:text-primary-text hover:bg-white/5 rounded-lg transition-colors"
+                    >
                       <User className="w-4 h-4" /> Profile Info
                     </button>
-                    <button className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-secondary-text hover:text-primary-text hover:bg-white/5 rounded-lg transition-colors">
+                    <button 
+                      onClick={() => {
+                        setIsProfileOpen(false);
+                        navigate('/dashboard/admin/settings');
+                      }}
+                      className="w-full flex items-center gap-2.5 px-3.5 py-2 text-xs font-medium text-secondary-text hover:text-primary-text hover:bg-white/5 rounded-lg transition-colors"
+                    >
                       <Settings className="w-4 h-4" /> Preferences
                     </button>
                     <button 

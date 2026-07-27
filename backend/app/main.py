@@ -1,13 +1,18 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base, SessionLocal
-from app.models import User, MenuItem, Order, OrderItem, Reservation
+from app.models import User, MenuItem, Order, OrderItem, Reservation, InventoryItem, Notification
 from app.routers.auth import router as auth_router
 from app.routers.menu import router as menu_router
 from app.routers.order import router as order_router
 from app.routers.assistant import router as assistant_router
 from app.routers.reservation import router as reservation_router
 from app.routers.analytics import router as analytics_router
+from app.routers.inventory import router as inventory_router
+from app.routers.customers import router as customers_router
+from app.routers.notification import router as notification_router
+from app.routers.recommendations import router as recommendations_router
+from app.services.websocket import manager
 
 # Initialize SQLite database schema
 Base.metadata.create_all(bind=engine)
@@ -167,6 +172,18 @@ def seed_database():
             ]
             db.add_all(seed_items)
             db.commit()
+            
+        if db.query(InventoryItem).count() == 0:
+            seed_inventory = [
+                InventoryItem(name="White Truffle", quantity=0.5, unit="kg", min_stock=2.0, category="Luxury Oils & Spices"),
+                InventoryItem(name="A5 Wagyu Beef", quantity=15.0, unit="kg", min_stock=5.0, category="Meats"),
+                InventoryItem(name="Beluga Caviar", quantity=1.2, unit="kg", min_stock=2.5, category="Luxury Oils & Spices"),
+                InventoryItem(name="24k Edible Gold Leaf", quantity=50.0, unit="sheets", min_stock=10.0, category="Garnishes"),
+                InventoryItem(name="Buffalo Mozzarella", quantity=8.0, unit="kg", min_stock=3.0, category="Dairy"),
+                InventoryItem(name="Fresh Mangoes", quantity=25.0, unit="units", min_stock=10.0, category="Produce")
+            ]
+            db.add_all(seed_inventory)
+            db.commit()
     except Exception as e:
         print(f"Error seeding database: {e}")
     finally:
@@ -195,6 +212,13 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from fastapi.staticfiles import StaticFiles
+import os
+
+# Ensure static directories exist
+os.makedirs("app/static/dish_images", exist_ok=True)
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
 # Register routes
 app.include_router(auth_router)
 app.include_router(menu_router)
@@ -202,6 +226,23 @@ app.include_router(order_router)
 app.include_router(assistant_router)
 app.include_router(reservation_router)
 app.include_router(analytics_router)
+app.include_router(inventory_router)
+app.include_router(customers_router)
+app.include_router(notification_router)
+app.include_router(recommendations_router)
+
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
+    try:
+        while True:
+            await websocket.receive_text()
+    except WebSocketDisconnect:
+        pass
+    except Exception:
+        pass
+    finally:
+        manager.disconnect(websocket)
 
 @app.get("/")
 def read_root():

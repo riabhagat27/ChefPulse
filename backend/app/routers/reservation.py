@@ -2,14 +2,15 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 from app.database import get_db
-from app.models import User, Reservation
+from app.models import User, Reservation, Notification
 from app.schemas.reservation import ReservationCreate, ReservationStatusUpdate, ReservationOut
 from app.services.auth import get_current_user
+from app.services.websocket import manager
 
 router = APIRouter(prefix="/api/reservations", tags=["reservations"])
 
 @router.post("", response_model=ReservationOut)
-def create_reservation(
+async def create_reservation(
     booking: ReservationCreate,
     db: Session = Depends(get_db),
     current_user: User = Depends(get_current_user)
@@ -33,6 +34,32 @@ def create_reservation(
         db.add(new_res)
         db.commit()
         db.refresh(new_res)
+        
+        # Create notification for admin
+        new_notif = Notification(
+            user_id=None,
+            text=f"New Reservation Request: {new_res.customer_name} ({new_res.guests} Guests) for {new_res.reservation_date} at {new_res.reservation_time}"
+        )
+        db.add(new_notif)
+        db.commit()
+        
+        # Broadcast booking request
+        await manager.broadcast({
+            "event": "reservation_created",
+            "reservation_id": new_res.id,
+            "customer_name": new_res.customer_name
+        })
+        
+        # Broadcast the admin real-time custom notification toast event
+        await manager.broadcast({
+            "event": "new_notification",
+            "role": "admin",
+            "text": f"New Table Reservation Request: {new_res.customer_name} ({new_res.guests} Guests)",
+            "type": "reservation"
+        })
+
+        await manager.broadcast({"event": "notification_created"})
+        
         return new_res
     except Exception as e:
         db.rollback()
@@ -86,7 +113,7 @@ def get_reservation_details(
     return res
 
 @router.put("/{id}/status", response_model=ReservationOut)
-def update_reservation_status(
+async def update_reservation_status(
     id: int,
     status_update: ReservationStatusUpdate,
     db: Session = Depends(get_db),
@@ -123,6 +150,49 @@ def update_reservation_status(
         res.status = new_status
         db.commit()
         db.refresh(res)
+        
+        # Create notification for customer
+        status_text = {
+            "Confirmed": f"Your table reservation for {res.reservation_date} at {res.reservation_time} has been confirmed.",
+            "Cancelled": f"Your table reservation for {res.reservation_date} at {res.reservation_time} has been cancelled."
+        }.get(new_status, f"Your reservation status is now {new_status}.")
+        
+        new_notif = Notification(
+            user_id=res.customer_id,
+            text=status_text
+        )
+        db.add(new_notif)
+        db.commit()
+        
+        # Broadcast reservation status change
+        await manager.broadcast({
+            "event": "reservation_status_updated",
+            "reservation_id": res.id,
+            "customer_id": res.customer_id,
+            "status": new_status
+        })
+
+        # Broadcast customer status toast notification event
+        toast_text = {
+            "Confirmed": "Your table has been confirmed.",
+            "Cancelled": "Your reservation has been cancelled."
+        }.get(new_status, f"Your reservation status is now {new_status}.")
+        
+        toast_type = {
+            "Confirmed": "success",
+            "Cancelled": "error"
+        }.get(new_status, "success")
+        
+        await manager.broadcast({
+            "event": "new_notification",
+            "role": "customer",
+            "customer_id": res.customer_id,
+            "text": toast_text,
+            "type": toast_type
+        })
+
+        await manager.broadcast({"event": "notification_created"})
+        
         return res
     except Exception as e:
         db.rollback()

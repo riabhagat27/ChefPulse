@@ -43,3 +43,15 @@ class Token(BaseModel):
     access_token: str
     token_type: str
     user: UserOut
+
+class ProfileUpdate(BaseModel):
+    full_name: Optional[str] = None
+    restaurant_name: Optional[str] = None
+    password: Optional[str] = None
+
+class OTPRequest(BaseModel):
+    email: EmailStr
+
+class OTPVerify(BaseModel):
+    email: EmailStr
+    otp: str

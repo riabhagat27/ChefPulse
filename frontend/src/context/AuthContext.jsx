@@ -7,21 +7,22 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const token = localStorage.getItem('token');
-      if (token) {
-        try {
-          const res = await api.get('/api/me');
-          setUser(res.data);
-        } catch (err) {
-          console.error('Session restoration failed:', err);
-          localStorage.removeItem('token');
-          setUser(null);
-        }
+  const fetchUser = async () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      try {
+        const res = await api.get('/api/me');
+        setUser(res.data);
+      } catch (err) {
+        console.error('Session restoration failed:', err);
+        localStorage.removeItem('token');
+        setUser(null);
       }
-      setLoading(false);
-    };
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
     fetchUser();
   }, []);
 
@@ -65,8 +66,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const refreshUser = async () => {
+    try {
+      const res = await api.get('/api/me');
+      setUser(res.data);
+      return res.data;
+    } catch (err) {
+      console.error('Failed to refresh user credentials:', err);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, register, logout, refreshUser, setUser }}>
       {children}
     </AuthContext.Provider>
   );

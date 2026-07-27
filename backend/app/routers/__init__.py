@@ -4,3 +4,7 @@ from app.routers.order import router as order_router
 from app.routers.assistant import router as assistant_router
 from app.routers.reservation import router as reservation_router
 from app.routers.analytics import router as analytics_router
+from app.routers.inventory import router as inventory_router
+from app.routers.customers import router as customers_router
+from app.routers.notification import router as notification_router
+from app.routers.recommendations import router as recommendations_router
