@@ -3,9 +3,17 @@
 
 # ChefPulse - AI-Powered Restaurant Operations Platform
 
-ChefPulse is a premium AI SaaS dashboard and restaurant operations platform. This codebase represents the initial hackathon prototype foundation, featuring a high-fidelity landing page with glassmorphism, charts, animated statistics counters, and a placeholder FastAPI backend with CORS and SQLite configuration.
+# 📖 Overview
 
+ChefPulse is an AI-powered restaurant management platform built for modern restaurants to streamline daily operations through intelligent automation, real-time dashboards, and role-based management.
+
+The platform provides dedicated dashboards for restaurant administrators, kitchen staff, and customers while integrating AI-powered assistance for menu recommendations, restaurant analytics, inventory insights, customer support, and operational decision-making.
+
+ChefPulse combines restaurant management, order processing, reservations, inventory tracking, analytics, notifications, and AI-driven interactions into a single platform.
+
+Developed as a solo project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
 ---
+# 👤 Team Information ## Team Name **SoloStack** ## Team Size **1** ## Team Lead **Ria Bhagat** --- ## Roles & Responsibilities Since this is a solo submission, all responsibilities were handled by the Team Lead. | Role | Member | |-------|--------| | Team Lead | Ria Bhagat | | UI/UX Designer | Ria Bhagat | | Frontend Developer | Ria Bhagat | | Backend Developer | Ria Bhagat | | Database Designer | Ria Bhagat | | API Developer | Ria Bhagat | | AI Integration | Ria Bhagat | | Testing & Deployment | Ria Bhagat | --- # 🚀 Live Demo ## Frontend https://chef-pulse.vercel.app/ ## Backend API https://chefpulse-backend.onrender.com/ --- # 🏆 Hackathon **Vibeathon 6.0** --- # 💡 Problem Statement Modern restaurants often rely on multiple disconnected systems to manage orders, inventory, reservations, customer interactions, and kitchen operations. This leads to inefficient workflows, slower service, increased manual effort, and limited operational insights. ChefPulse addresses these challenges by providing a centralized AI-powered platform that combines restaurant management, analytics, customer engagement, and intelligent automation into one seamless solution. ---
 
 # 📂 Project Structure
 
