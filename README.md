@@ -32,8 +32,10 @@ Since this is a solo submission, all responsibilities were handled by the Team L
 | Testing & Deployment | Ria Bhagat | 
 --- 
 # 🚀 Live Demo 
-## Frontend https://chef-pulse.vercel.app
-## Backend API https://chefpulse-backend.onrender.com
+## Frontend 
+https://chef-pulse.vercel.app
+## Backend API 
+https://chefpulse-backend.onrender.com
 --- 
 # 🏆 Hackathon **Vibeathon 6.0** 
 --- 
