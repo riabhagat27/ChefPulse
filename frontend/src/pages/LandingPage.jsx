@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  ShoppingBag, 
-  Package, 
-  ChefHat, 
-  Sparkles, 
-  ArrowRight, 
-  Play, 
-  Twitter, 
+import {
+  ShoppingBag,
+  Package,
+  ChefHat,
+  Sparkles,
+  ArrowRight,
+  Play,
+  Twitter,
   Linkedin,
   Github,
   Sparkle
@@ -29,7 +29,7 @@ function AnimatedCounter({ target, suffix = '', duration = 1500 }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    
+
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setInView(true);
@@ -48,7 +48,7 @@ function AnimatedCounter({ target, suffix = '', duration = 1500 }) {
     let start = 0;
     const end = parseInt(target, 10);
     if (isNaN(end)) return;
-    
+
     const incrementTime = 30;
     const steps = duration / incrementTime;
     const increment = end / steps;
@@ -171,18 +171,18 @@ export default function LandingPage() {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="flex flex-wrap gap-5 pt-2"
             >
-              <Link 
-                to="/register" 
+              <Link
+                to="/register"
                 className="text-xs uppercase tracking-widest font-semibold text-background bg-gradient-to-r from-primary to-secondary hover:brightness-110 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 px-8 py-4 rounded-xl text-center flex items-center justify-center"
               >
                 Get Started
               </Link>
-              <Link 
-                to="/login" 
+              <Link
+                to="/login"
                 className="flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-primary-text glass hover:bg-white/5 transition-colors px-8 py-4 rounded-xl border border-border-color justify-center"
               >
                 <Play className="w-3.5 h-3.5 text-primary fill-primary" />
-                View Cinema
+                View
               </Link>
             </motion.div>
           </div>
@@ -197,13 +197,13 @@ export default function LandingPage() {
             {/* Soft gold frame glow */}
             <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary rounded-card opacity-20 blur-xl group-hover:opacity-35 transition duration-500" />
             <div className="relative rounded-card overflow-hidden border border-primary/20 aspect-[4/5] bg-surface">
-              <img 
-                src={michelinDish} 
-                alt="Michelin Star Dish Plating" 
+              <img
+                src={michelinDish}
+                alt="Michelin Star Dish Plating"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
-              
+
               {/* Floating Monogram Label */}
               <div className="absolute bottom-6 left-6 right-6 p-4 glass rounded-xl border border-primary/10 flex items-center justify-between">
                 <div>
@@ -223,7 +223,7 @@ export default function LandingPage() {
       <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-border-color">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Image Left */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -232,9 +232,9 @@ export default function LandingPage() {
           >
             <div className="absolute -inset-1 bg-gradient-to-tr from-secondary to-primary rounded-card opacity-10 blur-xl" />
             <div className="relative rounded-card overflow-hidden border border-border-color aspect-[4/3] bg-surface">
-              <img 
-                src={kitchenPrep} 
-                alt="Chef Preparing Food in Kitchen" 
+              <img
+                src={kitchenPrep}
+                alt="Chef Preparing Food in Kitchen"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
@@ -251,8 +251,8 @@ export default function LandingPage() {
               Coordinate recipes, cook times, and line stations in absolute synchronicity. ChefPulse KDS routes ticketing with intelligent priority, ensuring every dish is prepared accurately and served fresh.
             </p>
             <div className="pt-2">
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
@@ -279,8 +279,8 @@ export default function LandingPage() {
               Minimize food waste and maximize margins without compromising quality. ChefPulse’s predictive models forecast seasonal ingredient demand, automated inventory orders, and optimal staff hours.
             </p>
             <div className="pt-2">
-              <a 
-                href="#features" 
+              <a
+                href="#features"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
@@ -293,7 +293,7 @@ export default function LandingPage() {
           </div>
 
           {/* Image Right */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -302,9 +302,9 @@ export default function LandingPage() {
           >
             <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary rounded-card opacity-10 blur-xl" />
             <div className="relative rounded-card overflow-hidden border border-border-color aspect-[4/3] bg-surface">
-              <img 
-                src={michelinDish} 
-                alt="Culinary Creation Closeup" 
+              <img
+                src={michelinDish}
+                alt="Culinary Creation Closeup"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
@@ -316,7 +316,7 @@ export default function LandingPage() {
       {/* Dashboard Preview Section */}
       <section className="py-24 px-6 md:px-12 bg-surface/30 border-y border-border-color relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
-        
+
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-[10px] uppercase tracking-widest text-primary font-bold">The Live Operations Dashboard</span>
@@ -356,7 +356,7 @@ export default function LandingPage() {
             >
               {/* Gold gradient accent on hover */}
               <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${feature.color} opacity-20 blur-2xl group-hover:scale-125 transition-transform duration-500`} />
-              
+
               <div className="space-y-6">
                 <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center border border-border-color">
                   <feature.icon className={`w-5 h-5 ${feature.iconColor}`} />
@@ -408,10 +408,10 @@ export default function LandingPage() {
       {/* Call To Action - Michelin Star Invitation look */}
       <section id="contact" className="py-24 px-6 md:px-12 max-w-5xl mx-auto text-center relative">
         <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="glass-card rounded-card p-10 md:p-16 border border-primary/20 relative overflow-hidden space-y-8">
           <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 via-transparent to-secondary/5 pointer-events-none" />
-          
+
           <span className="text-[10px] uppercase tracking-widest text-primary font-bold">Limited Enrollment</span>
           <h2 className="text-3xl sm:text-5xl font-serif font-light tracking-tight leading-tight">
             Ready to Elevate Your Establishment?
@@ -419,10 +419,10 @@ export default function LandingPage() {
           <p className="text-secondary-text text-sm sm:text-base max-w-xl mx-auto font-light">
             Acquire access to ChefPulse operational intelligence. Elevate guest satisfaction, coordinate kitchen timings, and secure profitability metrics.
           </p>
-          
+
           <div className="pt-4 flex justify-center">
-            <Link 
-              to="/register" 
+            <Link
+              to="/register"
               className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-bold text-background bg-gradient-to-r from-primary to-secondary hover:brightness-110 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 px-8 py-4 rounded-xl justify-center text-center"
             >
               Launch ChefPulse Console
