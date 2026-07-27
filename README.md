@@ -319,5 +319,27 @@ Redoc
 # 📸 Screenshots
 <img width="944" height="496" alt="image" src="https://github.com/user-attachments/assets/75c2d81a-d351-4fc1-9087-849051adb7cf" />
 
+<img width="950" height="498" alt="image" src="https://github.com/user-attachments/assets/98f49f20-5523-43e0-abb3-101d55702a86" />
+
+<img width="947" height="494" alt="image" src="https://github.com/user-attachments/assets/727f85f9-baca-4e46-b6de-b314b5e6cac6" />
+
+<img width="949" height="498" alt="image" src="https://github.com/user-attachments/assets/31f6a1d2-985b-4e26-a420-41a07d9baad3" />
+
+<img width="949" height="495" alt="image" src="https://github.com/user-attachments/assets/7301f414-dd20-459f-9f92-0e14beb0ad73" />
+
+<img width="948" height="497" alt="image" src="https://github.com/user-attachments/assets/6eb23839-3de6-4366-8c5f-a7bc16e40d1c" />
+
+---
+# 👩‍💻 Developed By 
+**Ria Bhagat** 
+Team Lead — 
+**SoloStack** 
+Vibeathon 6.0 
+
+--- 
+# 📄 License 
+This project was developed for educational and hackathon purposes.
+
+---
 
 
