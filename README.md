@@ -36,8 +36,11 @@ Since this is a solo submission, all responsibilities were handled by the Team L
 https://chef-pulse.vercel.app
 ## Backend API 
 https://chefpulse-backend.onrender.com
+
 --- 
+
 # 🏆 Hackathon **Vibeathon 6.0** 
+
 --- 
 # 💡 Problem Statement 
 Modern restaurants often rely on multiple disconnected systems to manage orders, inventory, reservations, customer interactions, and kitchen operations. This leads to inefficient workflows, slower service, increased manual effort, and limited operational insights. ChefPulse addresses these challenges by providing a centralized AI-powered platform that combines restaurant management, analytics, customer engagement, and intelligent automation into one seamless solution. ---
@@ -55,6 +58,7 @@ Modern restaurants often rely on multiple disconnected systems to manage orders,
 - Notifications
 - Profile management
 ---
+
 ## 🍽 Customer Dashboard 
 - Browse luxury menu
 - AI restaurant assistant
@@ -66,11 +70,13 @@ Modern restaurants often rely on multiple disconnected systems to manage orders,
 - Reserve tables
 - Manage profile
 ---
+
 ## 👨‍🍳 Kitchen Dashboard 
 - View incoming orders
 - Update order status
 - Track kitchen workload
 ---
+
 # 🤖 AI Features
 
 ## Customer AI Assistant
@@ -114,6 +120,7 @@ Examples include:
 - Image-based dish recognition
 - Role-based AI responses
 ---
+
 # 📊 Analytics
 
 - Revenue dashboard
@@ -125,6 +132,7 @@ Examples include:
 - AI-generated business insights
 - Demand forecasting
 ---
+
 # 📦 Inventory Management
 
 - Inventory tracking
@@ -133,6 +141,7 @@ Examples include:
 - Category-wise inventory
 - Stock level monitoring
 ---
+
 ## 🔐 Authentication 
 - JWT Authentication
 - Secure Login
@@ -140,6 +149,7 @@ Examples include:
 - OTP Email Verification
 - Role-Based Access Control
 ---
+
 # 📧 Notifications
 
 - Real-time notifications
@@ -221,50 +231,83 @@ ChefPulse/
         └── main.py           # FastAPI application entry point
 ```
 
-## Installation Commands
+# ⚙️ Installation ## Clone Repository
+bash
+git clone 
+https://github.com/YOUR_USERNAME/ChefPulse.git
+--- 
 
-### 1. Prerequisites
-Ensure you have the following installed:
-- **Node.js** (v18+)
-- **Python** (v3.8+)
-
-### 2. Frontend Installation
-Open a terminal in the `frontend` folder and run:
-```bash
-cd frontend
-npm install
-```
-
-### 3. Backend Installation
-Open a terminal in the `backend` folder, create a virtual environment, and install dependencies:
-```bash
+## Backend
+bash
 cd backend
-python -m venv venv
-# On Windows (PowerShell):
-.\venv\Scripts\Activate.ps1
-# On macOS/Linux:
-source venv/bin/activate
 
+python -m venv .venv
+
+source .venv/bin/activate
+Windows
+bash
+.venv\Scripts\activate
+Install dependencies
+bash
 pip install -r requirements.txt
-```
+Run server
+bash
+uvicorn app.main:app --reload
+--- 
 
+## Frontend
+bash
+cd frontend
+
+npm install
+
+npm run dev
+--- 
+
+# 🌐 API FastAPI automatically generates API documentation. 
+Swagger
+/docs
+Redoc
+/redoc
 ---
 
-## Run Commands
+# 🔥 Highlights
 
-To run both services locally:
+- AI Restaurant Assistant
+- AI Business Analytics Assistant
+- Smart Menu Recommendations
+- Role-Based Dashboards
+- Voice Ordering
+- Image-Based Dish Recognition
+- AI Dish Image Generation
+- Restaurant Analytics
+- Inventory Intelligence
+- Demand Forecasting
+- Reservation Management
+- JWT Authentication
+- WebSocket Notifications
+- Responsive Modern UI
+- Production Deployment
+---
 
-### 1. Run Backend Server
-From the `backend` directory (ensure your virtual environment is active):
-```bash
-uvicorn app.main:app --reload --port 8000
-```
-- API will run at: `http://localhost:8000`
-- Swagger Documentation will be available at: `http://localhost:8000/docs`
+# 🚀 Future Improvements
 
-### 2. Run Frontend Dev Server
-From the `frontend` directory:
-```bash
-npm run dev
-```
-- Client will run at: `http://localhost:5173` (or the next available port)
+- Online Payment Gateway
+- QR Code Table Ordering
+- Multi-Restaurant Management
+- PostgreSQL Migration
+- Docker Deployment
+- CI/CD Pipeline
+- Mobile App
+- Multi-language Support
+- Staff Attendance Management
+- AI-Based Dynamic Pricing
+- POS Integration
+- Customer Loyalty & Rewards
+---
+
+# 📸 Screenshots
+<img width="944" height="496" alt="image" src="https://github.com/user-attachments/assets/75c2d81a-d351-4fc1-9087-849051adb7cf" />
+
+
+
