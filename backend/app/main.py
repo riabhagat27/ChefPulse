@@ -13,6 +13,7 @@ from app.routers.customers import router as customers_router
 from app.routers.notification import router as notification_router
 from app.routers.recommendations import router as recommendations_router
 from app.services.websocket import manager
+from fastapi.middleware.cors import CORSMiddleware
 
 # Initialize SQLite database schema
 Base.metadata.create_all(bind=engine)
@@ -206,12 +207,14 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "http://localhost:5173",
+        "https://chef-pulse.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 from fastapi.staticfiles import StaticFiles
 import os
 
