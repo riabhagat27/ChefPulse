@@ -2,6 +2,7 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from app.database import engine, Base, SessionLocal
 from app.models import User, MenuItem, Order, OrderItem, Reservation, InventoryItem, Notification
+from app.services.auth import get_password_hash
 from app.routers.auth import router as auth_router
 from app.routers.menu import router as menu_router
 from app.routers.order import router as order_router
@@ -185,6 +186,33 @@ def seed_database():
             ]
             db.add_all(seed_inventory)
             db.commit()
+                    # ------------------------------------------------------------------
+        # Seed demo accounts (only if they don't already exist)
+        # ------------------------------------------------------------------
+
+        admin = db.query(User).filter(User.email == "admin@chefpulse.com").first()
+        if not admin:
+            admin = User(
+                full_name="Demo Admin",
+                email="admin@chefpulse.com",
+                hashed_password=get_password_hash("Admin@123"),
+                role="admin",
+                restaurant_name="ChefPulse Demo"
+            )
+            db.add(admin)
+
+        customer = db.query(User).filter(User.email == "customer@chefpulse.com").first()
+        if not customer:
+            customer = User(
+                full_name="Demo Customer",
+                email="customer@chefpulse.com",
+                hashed_password=get_password_hash("Customer@123"),
+                role="customer",
+                restaurant_name=None
+            )
+            db.add(customer)
+
+        db.commit()
     except Exception as e:
         print(f"Error seeding database: {e}")
     finally:
