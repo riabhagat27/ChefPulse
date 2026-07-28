@@ -79,10 +79,14 @@ def send_otp_email(to_email: str, otp: str) -> bool:
         """
 
         msg.attach(MIMEText(html, "html"))
+        print("SMTP_HOST:", SMTP_HOST)
+        print("SMTP_PORT:", SMTP_PORT)
+        print("SMTP_USERNAME:", SMTP_USERNAME)
+        print("SMTP_SENDER:", SMTP_SENDER)
 
         # Send email
         if port == 465:
-            with smtplib.SMTP_SSL(SMTP_HOST, port) as server:
+            with smtplib.SMTP_SSL(SMTP_HOST, port, timeout=10) as server:
                 server.login(SMTP_USERNAME, SMTP_PASSWORD)
                 server.sendmail(
                     SMTP_SENDER,
@@ -90,14 +94,16 @@ def send_otp_email(to_email: str, otp: str) -> bool:
                     msg.as_string()
                 )
         else:
-            with smtplib.SMTP(SMTP_HOST, port) as server:
+            with smtplib.SMTP(SMTP_HOST, port, timeout=10) as server:
+                server.ehlo()
                 server.starttls()
+                server.ehlo()
                 server.login(SMTP_USERNAME, SMTP_PASSWORD)
                 server.sendmail(
                     SMTP_SENDER,
-                    to_email,
-                    msg.as_string()
-                )
+        to_email,
+        msg.as_string()
+    )
 
         print(f"[SMTP] OTP email sent successfully to {to_email}")
         return True
