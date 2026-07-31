@@ -16,22 +16,10 @@ Developed as a solo project for **Vibeathon 6.0**, ChefPulse demonstrates how AI
 ---
 # 👤 Team Information 
 ## Team Name **SoloStack** 
-## Team Size **1** 
+
 ## Team Lead **Ria Bhagat** 
 
---- 
-## Roles & Responsibilities 
-Since this is a solo submission, all responsibilities were handled by the Team Lead. 
-| Role | Member | 
-|-------|--------| 
-| Team Lead | Ria Bhagat | 
-| UI/UX Designer | Ria Bhagat | 
-| Frontend Developer | Ria Bhagat | 
-| Backend Developer | Ria Bhagat | 
-| Database Designer | Ria Bhagat | 
-| API Developer | Ria Bhagat | 
-| AI Integration | Ria Bhagat | 
-| Testing & Deployment | Ria Bhagat | 
+
 
 --- 
 # 🚀 Live Demo 
@@ -339,12 +327,7 @@ The following features are currently in **Beta** and may require further refinem
 
 <img width="948" height="497" alt="image" src="https://github.com/user-attachments/assets/6eb23839-3de6-4366-8c5f-a7bc16e40d1c" />
 
----
-# 👩‍💻 Developed By 
-**Ria Bhagat** 
-Team Lead — 
-**SoloStack** 
-Vibeathon 6.0 
+
 
 --- 
 # 📄 License 
