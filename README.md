@@ -1,5 +1,5 @@
 # 🍽️ ChefPulse ### AI-Powered Smart Restaurant Management Platform 
-![Hackathon](https://img.shields.io/badge/Hackathon-Vibeathon%206.0-blue?style=for-the-badge) ![Team](https://img.shields.io/badge/Team-SoloStack-success?style=for-the-badge) ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge) ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge) ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge) ---
+![Hackathon](https://img.shields.io/badge/Hackathon-Vibeathon%206.0-blue?style=for-the-badge) ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge) ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge) ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge) ---
 
 # ChefPulse - AI-Powered Restaurant Operations Platform
 
@@ -13,11 +13,7 @@ ChefPulse combines restaurant management, order processing, reservations, invent
 
 Developed as a solo project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
 
----
-# 👤 Team Information 
-## Team Name **SoloStack** 
 
-## Team Lead **Ria Bhagat** 
 
 
 
