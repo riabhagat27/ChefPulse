@@ -11,7 +11,7 @@ The platform provides dedicated dashboards for restaurant administrators, kitche
 
 ChefPulse combines restaurant management, order processing, reservations, inventory tracking, analytics, notifications, and AI-driven interactions into a single platform.
 
-Developed as a solo project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
+Developed as a project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
 
 
 
