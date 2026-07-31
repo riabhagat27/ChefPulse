@@ -1,5 +1,5 @@
 # 🍽️ ChefPulse ### AI-Powered Smart Restaurant Management Platform 
-![Hackathon](https://img.shields.io/badge/Hackathon-Vibeathon%206.0-blue?style=for-the-badge) ![Team](https://img.shields.io/badge/Team-SoloStack-success?style=for-the-badge) ![Team Size](https://img.shields.io/badge/Team%20Size-1-orange?style=for-the-badge) ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge) ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge) ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge) ---
+![Hackathon](https://img.shields.io/badge/Hackathon-Vibeathon%206.0-blue?style=for-the-badge) ![Team](https://img.shields.io/badge/Team-SoloStack-success?style=for-the-badge) ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge) ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge) ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge) ---
 
 # ChefPulse - AI-Powered Restaurant Operations Platform
 
