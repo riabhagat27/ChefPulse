@@ -323,14 +323,14 @@ npm run dev
 
 # 👩‍💻 Author
 
-**Ria Bhagat**
-**Aditya Doke**
+- **Ria Bhagat**
+- **Aditya Doke**
 
 
 
 GitHub:
-https://github.com/riabhagat27
-https://github.com/adityadok3
+- https://github.com/riabhagat27
+- https://github.com/adityadok3
 
 ---
 
