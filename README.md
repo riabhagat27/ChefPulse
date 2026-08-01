@@ -1,111 +1,127 @@
-# 🍽️ ChefPulse ### AI-Powered Smart Restaurant Management Platform 
-![Hackathon](https://img.shields.io/badge/Hackathon-Vibeathon%206.0-blue?style=for-the-badge) ![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge) ![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge) ![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge) ---
+# 🍽️ ChefPulse
 
-# ChefPulse - AI-Powered Restaurant Operations Platform
+> **AI-Powered Restaurant Management Platform** built with **React**, **FastAPI**, and intelligent automation to streamline restaurant operations.
+
+![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20Vite-61DAFB?style=for-the-badge)
+![Backend](https://img.shields.io/badge/Backend-FastAPI-009688?style=for-the-badge)
+![Database](https://img.shields.io/badge/Database-SQLite-003B57?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+
+---
 
 # 📖 Overview
 
-ChefPulse is an AI-powered restaurant management platform built for modern restaurants to streamline daily operations through intelligent automation, real-time dashboards, and role-based management.
+ChefPulse is a modern AI-powered restaurant management platform designed to simplify restaurant operations through intelligent automation, real-time analytics, and role-based dashboards.
 
-The platform provides dedicated dashboards for restaurant administrators, kitchen staff, and customers while integrating AI-powered assistance for menu recommendations, restaurant analytics, inventory insights, customer support, and operational decision-making.
+The platform enables restaurant administrators and customers to manage orders, reservations, menus, inventory, customer interactions, and restaurant analytics from a single integrated system while leveraging AI-assisted recommendations and operational insights.
 
-ChefPulse combines restaurant management, order processing, reservations, inventory tracking, analytics, notifications, and AI-driven interactions into a single platform.
+---
 
-Developed as a project for **Vibeathon 6.0**, ChefPulse demonstrates how AI can improve restaurant efficiency, reduce manual workload, and enhance customer experience.
+# 🎯 Why ChefPulse?
 
+Restaurants often rely on multiple disconnected systems for handling orders, reservations, inventory, analytics, and customer engagement. This results in inefficient workflows and increased manual effort.
 
+ChefPulse solves this problem by bringing every essential restaurant operation into one centralized platform enhanced with intelligent automation, improving operational efficiency and customer experience.
 
+---
 
+# 🚀 Live Demo
 
---- 
-# 🚀 Live Demo 
-## Frontend 
+### 🌐 Frontend
+
 https://chef-pulse.vercel.app
-## Backend API 
+
+### ⚡ Backend API
+
 https://chefpulse-backend.onrender.com
 
---- 
+### 📚 API Documentation
 
-# 🏆 Hackathon **Vibeathon 6.0** 
+Swagger:
+https://chefpulse-backend.onrender.com/docs
 
---- 
-# 💡 Problem Statement 
-Modern restaurants often rely on multiple disconnected systems to manage orders, inventory, reservations, customer interactions, and kitchen operations. This leads to inefficient workflows, slower service, increased manual effort, and limited operational insights. ChefPulse addresses these challenges by providing a centralized AI-powered platform that combines restaurant management, analytics, customer engagement, and intelligent automation into one seamless solution. ---
+ReDoc:
+https://chefpulse-backend.onrender.com/redoc
 
-# ✨ Key Features 
-## 👨‍💼 Admin Dashboard 
-- Restaurant analytics
+---
+
+# 🏆 Project Origin
+
+ChefPulse was originally developed during **Vibeathon 6.0** as an AI-powered restaurant operations platform and has since been refined as a portfolio project showcasing full-stack development, backend architecture, authentication, real-time communication, and AI-assisted features.
+
+---
+
+# ✨ Features
+
+## 👨‍💼 Admin Dashboard
+
+- Restaurant analytics dashboard
 - Revenue insights
 - Order management
 - Customer management
 - Reservation management
 - Inventory management
 - Menu management
-- AI Assistant
-- Notifications
+- AI-powered business assistant
+- Real-time notifications
 - Profile management
+
 ---
 
-## 🍽 Customer Dashboard 
-- Browse luxury menu
+## 🍽️ Customer Dashboard
+
+- Browse luxury restaurant menu
 - AI restaurant assistant
 - Voice ordering
 - Image-based dish recognition
-- Smart recommendations
+- Smart food recommendations
 - Place orders
 - View order history
-- Reserve tables
-- Manage profile
----
+- Table reservations
+- Profile management
 
-## 👨‍🍳 Kitchen Dashboard 
-- View incoming orders
-- Update order status
-- Track kitchen workload
 ---
 
 # 🤖 AI Features
 
-## Customer AI Assistant
+### Customer AI Assistant
 
 - Natural language restaurant assistant
-- Smart menu recommendations
-- Dietary preference filtering (Veg / Non-Veg)
-- Budget-based food suggestions
+- Intelligent menu recommendations
+- Dietary preference filtering
+- Budget-based suggestions
 - Category-wise recommendations
 - Chef's special recommendations
-- Side dish & beverage pairing suggestions
-- Restaurant FAQs (hours, location, concept)
+- Beverage & side pairing suggestions
+- Restaurant FAQs
 
 ---
 
-## Admin AI Assistant
+### Admin AI Assistant
 
-The AI assistant can answer operational questions using live restaurant data.
+Provides operational insights such as:
 
-Examples include:
-
-- What sold the most today?
-- What are today's sales?
-- Which customers spent the most?
-- Which dishes are underperforming?
-- Which menu item should be restocked?
-- Predict tomorrow's demand
+- Best-selling dishes
+- Daily sales
+- Customer statistics
 - Inventory status
 - Reservation summary
-- Customer statistics
-- Order status overview
+- Underperforming menu items
+- Restocking suggestions
 - Marketing recommendations
+- Demand forecasting
 
 ---
 
-## AI-Powered Features
+### AI Capabilities
 
-- Intelligent menu recommendations
-- AI-generated dish images
-- Voice ordering support
+- AI-assisted restaurant chatbot
+- Intelligent recommendation engine
+- Voice ordering
 - Image-based dish recognition
+- AI-generated dish images
 - Role-based AI responses
+
 ---
 
 # 📊 Analytics
@@ -116,24 +132,27 @@ Examples include:
 - Best-selling dishes
 - Customer insights
 - Restaurant performance metrics
-- AI-generated business insights
+- Business insights
 - Demand forecasting
+
 ---
 
 # 📦 Inventory Management
 
 - Inventory tracking
-- Low stock detection
+- Low stock alerts
 - Restock recommendations
 - Category-wise inventory
-- Stock level monitoring
+- Stock monitoring
+
 ---
 
-## 🔐 Authentication 
+# 🔐 Authentication
+
 - JWT Authentication
 - Secure Login
-- Registration
-- OTP Email Verification
+- User Registration
+- OTP-based Login
 - Role-Based Access Control
 
 ---
@@ -141,174 +160,188 @@ Examples include:
 # 📧 Notifications
 
 - Real-time notifications
-- Live updates using WebSockets
+- WebSocket live updates
 - Order notifications
 - Reservation updates
+
 ---
 
-## Frontend
+# 🛠️ Tech Stack
 
-- React
-- Vite
-- React Router
-- Axios
-- Framer Motion
-- Recharts
-- Lucide React
+| Category | Technologies |
+|-----------|--------------|
+| Frontend | React, Vite, React Router, Axios, Framer Motion, Recharts, Lucide React |
+| Backend | FastAPI, SQLAlchemy, Pydantic |
+| Authentication | JWT, Passlib, Argon2 |
+| Database | SQLite |
+| Real-time | WebSockets |
+| Deployment | Vercel, Render |
 
-## Backend
+---
 
-- FastAPI
-- SQLAlchemy
-- Pydantic
-- JWT Authentication
-- Passlib
-- Argon2
-- WebSockets
+# 🏗️ Architecture
 
-## Database
+```text
+React + Vite Frontend
+        │
+        │ Axios
+        ▼
+FastAPI Backend
+        │
+ SQLAlchemy ORM
+        │
+        ▼
+SQLite Database
+```
 
-- SQLite
-
-## AI Features
-
-- Rule-based Natural Language Assistant
-- Intelligent Recommendation Engine
-- Image Recognition
-- AI-generated Dish Images
-
-## Deployment
-
-- Vercel (Frontend)
-- Render (Backend)
+---
 
 # 📂 Project Structure
 
 ```text
 ChefPulse/
-├── .env.example              # Environment variables template
-├── README.md                 # Project documentation
-│
-├── frontend/                 # React + Vite frontend
-│   ├── public/               # Static assets
+├── README.md
+├── frontend/
+│   ├── public/
 │   ├── src/
-│   │   ├── assets/           # Images, icons and illustrations
-│   │   ├── components/       # Reusable UI components
-│   │   ├── context/          # Authentication & global state
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── layouts/          # Dashboard layouts
-│   │   ├── pages/            # Application pages
-│   │   ├── services/         # API services (Axios)
-│   │   ├── App.jsx           # Routing configuration
-│   │   ├── main.jsx          # React entry point
-│   │   └── index.css         # Global styles
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── layouts/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
 │   ├── package.json
-│   ├── vite.config.js
-│   └── index.html
+│   └── vite.config.js
 │
-└── backend/                  # FastAPI backend
+└── backend/
     ├── requirements.txt
     └── app/
-        ├── models/           # SQLAlchemy database models
-        ├── routers/          # API endpoints
-        ├── schemas/          # Pydantic schemas
-        ├── services/         # AI assistant, authentication & business logic
+        ├── models/
+        ├── routers/
+        ├── schemas/
+        ├── services/
         ├── static/
-        │   └── dish_images/  # Generated/uploaded menu images
-        ├── database.py       # Database configuration
-        └── main.py           # FastAPI application entry point
+        ├── database.py
+        └── main.py
 ```
 
-# ⚙️ Installation 
+---
+
+# ⚙️ Installation
+
 ## Clone Repository
-bash
-git clone
 
-https://github.com/riabhagat27/ChefPulse.git
+```bash
+git clone https://github.com/riabhagat27/ChefPulse.git
+cd ChefPulse
+```
 
---- 
+---
 
 ## Backend
-bash
+
+```bash
 cd backend
 
 python -m venv .venv
 
-source .venv/bin/activate
-Windows
-bash
+# Windows
 .venv\Scripts\activate
-Install dependencies
-bash
-pip install -r requirements.txt
-Run server
-bash
-uvicorn app.main:app --reload
 
---- 
+# Linux / macOS
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+uvicorn app.main:app --reload
+```
+
+---
 
 ## Frontend
-bash
+
+```bash
 cd frontend
 
 npm install
 
 npm run dev
-
---- 
-
-# 🌐 API FastAPI automatically generates API documentation. 
-Swagger
-/docs
-Redoc
-/redoc
+```
 
 ---
 
 # 🔥 Highlights
 
 - AI Restaurant Assistant
-- AI Business Analytics Assistant
-- Smart Menu Recommendations
-- Role-Based Dashboards
+- AI Business Assistant
+- Smart Food Recommendations
 - Voice Ordering
-- Image-Based Dish Recognition
-- AI Dish Image Generation
+- Image Recognition
+- AI Dish Images
 - Restaurant Analytics
 - Inventory Intelligence
-- Demand Forecasting
 - Reservation Management
 - JWT Authentication
 - WebSocket Notifications
-- Responsive Modern UI
+- Responsive UI
 - Production Deployment
+
 ---
 
 # 🚀 Future Improvements
 
-- Online Payment Gateway
+- Online Payments
 - QR Code Table Ordering
-- Multi-Restaurant Management
+- Multi-Restaurant Support
 - PostgreSQL Migration
-- Docker Deployment
+- Docker Support
 - CI/CD Pipeline
-- Mobile App
+- Mobile Application
 - Multi-language Support
-- Staff Attendance Management
-- AI-Based Dynamic Pricing
+- Staff Attendance
 - POS Integration
-- Customer Loyalty & Rewards
----
-# 🚧 Beta Features / Incomplete Functionality
+- Customer Loyalty Program
 
-The following features are currently in **Beta** and may require further refinement:
-
-- **Admin Demo Account**
-– Existing admin login may require re-registration or password reset after deployment due to SQLite deployment limitations.
-- **AI Demand Forecasting**
-– Current forecasts are based on historical averages and are intended as a prototype.
 ---
 
+# 📸 Screenshots
+
+> Add screenshots here after uploading them to the repository.
+
+- Landing Page
+- Admin Dashboard
+- Customer Dashboard
+- Analytics
+- Inventory Management
+- AI Assistant
+
+---
+
+# 👩‍💻 Author
+
+**Ria Bhagat**
+**Aditya Doke**
+
+
+
+GitHub:
+https://github.com/riabhagat27
+https://github.com/adityadok3
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+⭐ If you found this project useful, consider giving it a **Star** on GitHub!
+---
 
 # 📸 Screenshots
 <img width="944" height="496" alt="image" src="https://github.com/user-attachments/assets/75c2d81a-d351-4fc1-9087-849051adb7cf" />
@@ -326,9 +359,5 @@ The following features are currently in **Beta** and may require further refinem
 
 
 --- 
-# 📄 License 
-This project was developed for educational and hackathon purposes.
-
----
 
 
